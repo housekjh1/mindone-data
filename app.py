@@ -14,7 +14,7 @@ def predict():
         pool = data['pool']
         values = data['values']
 
-        if (pool == 'A' or pool == 'G' or pool == 'J' or pool == 'L' or pool == 'M' or pool == 'N' or pool == 'P' or pool == 'Q' or pool == 'S' or pool == 'T' or pool == 'U' or pool == 'V'):
+        if (pool == 'A' or pool == 'C' or pool == 'E' or pool == 'F' or pool == 'G' or pool == 'J' or pool == 'L' or pool == 'M' or pool == 'N' or pool == 'P' or pool == 'Q' or pool == 'S' or pool == 'T' or pool == 'U' or pool == 'V'):
             # 각 키에 해당하는 값을 추출
             data1 = [value['data1'] for value in values]
             data2 = [value['data2'] for value in values]
@@ -23,8 +23,25 @@ def predict():
             
             # 데이터셋 만들기
             data_set = np.column_stack((data1, data2, data3, data4))
-        elif (pool == 'B'):
-            return
+        elif (pool == 'B' or pool == 'D' or pool == 'H' or pool == 'I' or pool == 'O'):
+            # 각 키에 해당하는 값을 추출
+            data1 = [value['data1'] for value in values]
+            data2 = [value['data2'] for value in values]
+            data3 = [value['data3'] for value in values]
+            data4 = [value['data4'] for value in values]
+            data5 = [value['data5'] for value in values]
+            data6 = [value['data6'] for value in values]
+            
+            # 데이터셋 만들기
+            data_set = np.column_stack((data1, data2, data3, data4, data5, data6))
+        elif (pool == 'W'):
+            # 각 키에 해당하는 값을 추출
+            data1 = [value['data1'] for value in values]
+            data2 = [value['data2'] for value in values]
+            data3 = [value['data3'] for value in values]
+            
+            # 데이터셋 만들기
+            data_set = np.column_stack((data1, data2, data3))
 
         # 날짜 키에 해당하는 값을 추출
         dateTime = [value['dateTime'] for value in values]
